@@ -1,11 +1,17 @@
 from flask import Flask, render_template, request, url_for
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('hello.html')
+    from application.routes import index
+    from application.routes import about
+    from application.routes import courses
+    app.register_blueprint(index.bp)
+    app.register_blueprint(about.bp)
+    app.register_blueprint(courses.bp)
 
+    return app
 
-if __name__ == "__main__":
-    app.run()
+if __name__ ==  '__main__':
+    app = create_app()
+    app.run(debug=True)
