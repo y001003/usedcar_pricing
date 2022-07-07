@@ -7,6 +7,7 @@ def create_app():
     from application.routes import about
     from application.routes import courses
     from application.routes import appointment
+    
     app.register_blueprint(index.bp)
     app.register_blueprint(about.bp)
     app.register_blueprint(courses.bp)
