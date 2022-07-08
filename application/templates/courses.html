@@ -114,8 +114,69 @@
         </div>
     </div>
     <!-- Page Header End -->
-
-
+    <!-- form start -->
+    <div class="row g-4 justify-content-center">
+        <div class="col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="bg-primary text-center p-5">
+                <h1 class="mb-4">Input your car Information</h1>
+                <form action="predict">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            Your Vehicle Name
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="vname" placeholder="Vehicle Name" name="vname">
+                                <label for="vname">ex) avante, sonata, grandure, genesis, santafe </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            Your Vehicle Model
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="vmodel" placeholder="Vehicle Model" name="vmodel">
+                                <label for="vmodel">ex) 아반떼 AD, 더 뉴 아반떼</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            Your Vehicle Option
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="voption" placeholder="Vehicle Option" name="voption">
+                                <label for="voption">ex) 1.6 GDI 밸류 플러스, 1.6 GDi 스마트 기본형, 1.6 GDI 스타일</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            Your Vehicle Model year
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="vyear" placeholder="Model year" name="vyear">
+                                <label for="vyear">ex) 18/02식, 14/05식, 16/12식(17년형)</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            Your Vehicle Fuel Type
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="ftype" placeholder="Fuel type" name="ftype">
+                                <label for="ftype">ex) 가솔린, 디젤, LPG</label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-12">
+                            <br>
+                            Your Vehicle Odometer
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0" id="odometer" placeholder="odometer" name="odometer">
+                                <label for="odometer">ex) 숫자, 0~1000000</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                             <br>
+                            <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-success">{{ Output }}</button>
+            </div>
+        </div>
+    </div>
+    <!-- form end-->
+    
     <!-- Courses Start -->
     <div class="container-xxl py-6">
         <div class="container">
