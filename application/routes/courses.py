@@ -1,11 +1,14 @@
 from flask import Flask, Blueprint, render_template
 from flask import request
-import tensorflow as tf
-from tensorflow.keras import datasets, utils
-from tensorflow.keras import models, layers, activations, initializers, losses, optimizers, metrics
+# import tensorflow as tf
+# from tensorflow.keras import datasets, utils
+# from tensorflow.keras import models, layers, activations, initializers, losses, optimizers, metrics
 
 import pandas as pd
 import numpy as np
+
+import jinja2
+from pycaret.regression import *
 
 bp = Blueprint('courses',__name__,url_prefix='/')
 
@@ -24,10 +27,16 @@ def PredictionSpecialSale():
     odometer = request.args.get('odometer')
     
     Input = pd.DataFrame({
-        'busy_day':[int(busy_day)],
-        'high_temperature':[float(high_temperature)]
+        'model':[vmodel],
+        'option':[voption],
+        'year':[vyear],
+        'fuel':[ftype],
+        'odometer':[int(odometer)],
+        'car':[vname],
     })
-    ModelOutput = model.predict(Input)[0][0]
+    loaded_model = load_model('final_AutoML_model')
+
+    ModelOutput = loaded_model.predict(Input)
     
 
     return render_template('courses.html', Output = ModelOutput)
