@@ -24,7 +24,7 @@ def PredictionSpecialSale():
     voption = request.args.get('voption')
     vyear = request.args.get('vyear')
     ftype = request.args.get('ftype')
-    odometer = request.args.get('odometer')
+    odometer = int(request.args.get('odometer'))
     
     ## pycaret result
     # Input = pd.DataFrame({
@@ -40,7 +40,7 @@ def PredictionSpecialSale():
     # ModelOutput = loaded_model.predict(Input)
 
     ## DL result
-    train_df = pd.DataFrame(pd.read_csv('.../data/train_df.csv')).iloc[:,1:]
+    train_df = pd.DataFrame(pd.read_csv('/Users/krc/git/usedcar_pricing/application/routes/train_df.csv')).iloc[:,1:]
     cols = list(train_df.drop('price',axis=1).columns)
 
     temp = [0] * 1104
@@ -52,7 +52,7 @@ def PredictionSpecialSale():
     temp[cols.index('year_'+vyear)] =1
     temp[cols.index('fuel_'+ftype)] =1
     
-    reconstructed_model = models.load_model("DL_model")
-    predicted = reconstructed_model.predict(np.array(temp).reshape(1,-1))
+    reconstructed_model = models.load_model("/Users/krc/git/usedcar_pricing/application/routes/DL_model")
+    ModelOutput = reconstructed_model.predict(np.array(temp).reshape(1,-1))
 
-    return render_template('courses.html', Output = predicted)
+    return render_template('courses.html', Output = ModelOutput[0][0])
