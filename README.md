@@ -19,3 +19,10 @@
  1. Selenium을 이용해서 엔카(http://www.encar.com/) 에서 데이터 수집
  2. pycaret 회귀모델 이용해서 가격 예측 알고리즘 생성
  3. flask를 이용하여 웹 어플리케이션 구현
+
+ ## 웹 화면
+ <시작 화면>
+ ![image](https://user-images.githubusercontent.com/68417368/201798687-19d807c0-b887-49c7-b9ba-e58bb825aabe.png)
+ <차량 정보 입력 및 예측>
+ ![image](https://user-images.githubusercontent.com/68417368/201798885-540c376a-cbad-4dc5-b2ef-24ee791f22f4.png)
+
